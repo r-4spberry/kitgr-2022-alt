@@ -13,3 +13,7 @@
 Из-за переборной природы алгоритма программа достаточно медленно работает на больших графах, а так же на разряженных планарных.
 # Презентация
 https://docs.google.com/presentation/d/1fV1BAX9XNLK5Fg-yTfOj-6LcMcD4b4LJMU4tjnPjCJE/edit#slide=id.g1c28914903e_0_14
+# Теория к презентации
+[Теория](Theory.pdf)
+
+Вся данная теория была переведена нами из статьи Takao, Asano AN APPROACH TO THE SUBGRAPH HOMEOMORPHISM PROBLEM / Asano Takao. // Theoretical Computer Science. — 1985. — № 38. — С. 249-267.
