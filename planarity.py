@@ -71,7 +71,6 @@ def find_planarity(G):
                             if rr != None:
                                 planar = False
                                 offending_subgraph = subsubgraph
-                                print("Iterations (actual):", it)
                                 return planar, offending_subgraph, rr[1]
     
     return planar, offending_subgraph, it
