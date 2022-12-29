@@ -133,6 +133,4 @@ def rec_smooth(G: nx.Graph):
             t = rec_smooth(node_smoothing(G.copy(), n))
             if t != None:
                 return t
-            
-            import networkx as nx
 
