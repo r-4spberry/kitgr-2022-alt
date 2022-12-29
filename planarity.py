@@ -67,7 +67,7 @@ def find_planarity(G):
                         # nx.draw(subsubgraph)
                         # plt.show()
                         if nx.connected.is_connected(subsubgraph):
-                            rr = rec_smooth(subsubgraph)
+                            rr = smooth(subsubgraph)
                             if rr != None:
                                 planar = False
                                 offending_subgraph = subsubgraph
@@ -91,6 +91,27 @@ def node_smoothing(G: nx.Graph, n: int):
         G.add_edge(l[0], l[1])
         G.remove_node(n)
     return G
+
+def smooth(G: nx.Graph):
+    while True:
+        if len(G.nodes()) <= 4:
+            return None
+        for n in G.nodes():
+            t = node_smoothing(G.copy(), n)
+            if not nx.is_isomorphic(t, G):
+                G = t
+                break
+        else:
+            break
+        
+    if len(G.nodes()) == 5:
+        return (G.nodes(), 0) if is_k5(G) else None
+    if len(G.nodes()) == 6:
+        if is_k33(G):
+            # nx.draw(G)
+            # plt.show()
+            return (G.nodes(), 1)
+    return None
 
 def rec_smooth(G: nx.Graph):
     global it

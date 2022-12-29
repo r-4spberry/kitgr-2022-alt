@@ -194,18 +194,14 @@ def main():
                 #     messagebox.showinfo("Found!",f"Your subraph is {'K3' if type else 'K5,5'}")
                 # make a thread from this:
                 if not is_planar:
-                    # Tk().wm_withdraw() #to hide the main window
-                    # messagebox.showinfo("Found!",f"Your subraph is {'K3' if type else 'K5,5'}")
-                    def show_message():
-                        root = Tk()
-                        root.withdraw()
-                        messagebox.showinfo("Found!",f"Your subraph is {'K3,3' if type else 'K5'}")
-                        root.destroy()
-                    thread = threading.Thread(target=show_message)
-                    thread.start()
+                    root = Tk()
+                    root.withdraw()
+                    messagebox.showinfo("Found!",f"Your subraph is {'K3,3' if type else 'K5'}")
+                    root.destroy()
                 waiting = True
                 while waiting:
                     clock.tick(60)
+                    pygame.display.flip()
                     for event in pygame.event.get():
                         if event.type == pygame.QUIT:
                             sys.exit()
@@ -215,6 +211,7 @@ def main():
                                 break 
                 while is_looking:
                     clock.tick(60)
+                    pygame.display.flip()
                     for event in pygame.event.get():
                         #print(2)
                         if event.type == pygame.QUIT:
